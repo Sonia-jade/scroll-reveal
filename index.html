@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll-reveal</title>
+    
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <p class="head-p">Inside the course</p>
+    <h1 class="head-h1">What's included</h1>
+    <div class="container">
+        <div class="sticky-points">
+            <h4><span class="border-right"></span>Section one</h4>
+            <h4><span class="border-right"></span>Section two</h4>
+            <h4><span class="border-right"></span>Section three</h4>
+            <h4><span class="border-right"></span>Section four</h4>
+        </div>
+        <div class="scrollable" id="scrollable">
+            <div class="text" id="first">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a neque mattis, ultricies ante nec, volutpat lacus. Curabitur ac nisl sed tellus volutpat tincidunt ut ut tortor. Vestibulum congue enim velit.
+
+                </p>
+            </div>
+            <div class="text">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus animi molestiae quas alias laudantium. Sunt, vitae iste voluptates delectus, voluptatum necessitatibus modi soluta incidunt voluptas numquam dolores quis accusamus officiis.
+
+                </p>
+            </div>
+            <div class="text">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur enim nostrum ipsam iste iure quos eos aliquam, cumque, debitis maxime possimus ullam natus eligendi sed adipisci perferendis sequi, saepe illo!
+
+                </p>
+            </div>
+            <div class="text" id="last">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus repudiandae quia ullam in assumenda modi? Rem eius alias consectetur similique? Aliquam voluptates repellat iure veritatis illum veniam harum, dolorum voluptate?</p>
+            </div>
+        </div>
+        <div class="sticky-part">
+            <img src="./images/tab-1.png" alt="">
+                <img src="./images/tab-2.png" alt="">
+                <img src="./images/pc.png" alt="">
+                <img src="./images/laptop.png" alt="">
+          </div>
+    </div>    
+    <div class="container-mob">
+        <div class="scrollable" id="scrollable" >
+            <div class="text" id="first">
+                <img src="./images/tab-1.png" alt="">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a neque mattis, ultricies ante nec, volutpat lacus. Curabitur ac nisl sed tellus volutpat tincidunt ut ut tortor. Vestibulum congue enim velit.
+
+                </p>
+            </div>
+            <div class="text">
+                <img src="./images/tab-2.png" alt="">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus animi molestiae quas alias laudantium. Sunt, vitae iste voluptates delectus, voluptatum necessitatibus modi soluta incidunt voluptas numquam dolores quis accusamus officiis.
+
+                </p>
+            </div>
+            <div class="text">
+                <img src="./images/pc.png" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur enim nostrum ipsam iste iure quos eos aliquam, cumque, debitis maxime possimus ullam natus eligendi sed adipisci perferendis sequi, saepe illo!
+
+                </p>
+            </div>
+            <div class="text" id="last">
+                <img src="./images/laptop.png" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus repudiandae quia ullam in assumenda modi? Rem eius alias consectetur similique? Aliquam voluptates repellat iure veritatis illum veniam harum, dolorum voluptate?</p>
+            </div>
+        </div>
+    </div>
+      
+</body>
+<script>
+    var revealerpoint =  window.innerHeight / 2;
+window.addEventListener('scroll', reveal);
+reveal();
+function reveal() {
+let arrayPlop = ["./images/tab-1.png",
+                 "./images/tab-2.png",
+                 "./images/pc.png",
+                 "./images/laptop.png"]
+    var revealers = document.querySelectorAll('.text');
+  var images = document.querySelectorAll('img');
+    for (var i = 0; i < revealers.length; i++) {
+        var windowheight = window.innerHeight;
+        var revealertop = revealers[i].getBoundingClientRect().top;
+        var revealerbottom = revealers[i].getBoundingClientRect().bottom;
+        if (revealertop < windowheight - revealerpoint) {
+            images[i].classList.add('active')
+        } else {
+            images[i].classList.remove('active');
+        };
+        if (revealerbottom < 0 + revealerpoint) {
+            images[i].classList.remove('active');
+        }
+    } 
+};
+</script>
+</html>

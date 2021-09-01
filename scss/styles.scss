@@ -1,0 +1,105 @@
+*{
+    padding: 0%;
+    border: 0%;
+    box-sizing: border-box;
+}
+body{
+    background: black;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.head-p{
+    padding: 5% 0% 0% 7%;
+    font-size: 1.5rem;
+    color: yellow;
+}
+.head-h1{
+    padding-left: 7%;
+    font-size: 3.5rem;
+    color:white;
+}
+.container{
+    height: auto;
+    display: flex;
+    position: relative;
+    .sticky-points{
+        position: sticky;
+        min-width:20%;
+        height: 100vh;
+        top: 0%;
+        padding-top: 15%;
+        transform: translate(20%);
+        .border-right{
+            border-right: 3px solid yellow;
+            margin-right: 4%;
+        }
+        h4{
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+    }
+    .scrollable{
+        padding-top: 10%;
+        flex: 1;
+        .text {
+            height: 100vh;
+            color: #FFF;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            padding: 16px;
+            padding-top:20% ;
+            p {
+              font-size: 18px;
+              line-height: 28px;
+              margin: 8px auto auto;
+            }
+          }
+          
+    }
+    .sticky-part{
+        position: sticky;
+        top:0%;
+        min-width: 50%;
+        height: 100vh;
+        img{
+           position: absolute;
+           top: 50%;
+           left: 50%;
+           transform:translate(-50%,-50%);
+           max-width: 600px;
+           opacity: 0;
+           transition: 0.5s;
+           position: absolute;
+           top: 50%;
+           transform-origin: center;
+           z-index: -1;
+           &.active {
+           opacity: 1;
+           z-index: 1
+           }
+        }
+    }
+}
+.container-mob{
+    display: none;
+}
+
+@media (max-width:1040px){
+    .container{
+        display:none;
+    }
+    .container-mob{
+        display: flex;
+        flex-direction: row; 
+        img{
+            height: 350px;
+            width: 350px;
+        }
+        .text{
+            text-align: center;
+            color: #fff;
+        }
+    }
+}
